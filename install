@@ -4,8 +4,10 @@ root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 main() {
   link_file bashrc.sh .bashrc
+  link_file vimrc.vim .vimrc
   link_file Xresources .Xresources
   link_file dircolors .dircolors
+  xrdb -merge ~/.Xresources
 }
 
 link_file() {
