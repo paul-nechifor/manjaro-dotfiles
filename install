@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+main() {
+  link_file bashrc.sh .bashrc
+  link_file Xresources .Xresources
+  link_file dircolors .dircolors
+}
+
+link_file() {
+  rm -fr ~/"$2"
+  ln -s "$root/files/$1" ~/"$2"
+}
+
+main "$@"
